@@ -1,0 +1,15 @@
+Day View / Wednesday 3rd April 2019 / All centres & rooms / All teachers
+Day View / Wednesday 3rd April 2019 / All rooms in Cosham / All teachers
+Day View  /  Wednesday 3rd April 2019  /  Cosham - Room 1  /  All teachers
+					  Cosham - Room 2
+Day View  /  Wednesday 3rd April 2019  /  Cosham - Room 1  /  Adrian Gregory
+					  Cosham - Room 2  /  Chris Gregory
+Week View  /  Wednesday 3rd April 2019  /  Cosham - Room 1  /  Adrian Gregory
+					   Cosham - Room 2
+Display Settings
+
+viewSummary
+dwView
+dateViewed
+roomsViewed
+teachersViewed

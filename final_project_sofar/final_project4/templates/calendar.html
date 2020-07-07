@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Calendar
+{% endblock %}
+
+{% block main %}
+
+<link href="/static/css/calendar.css" rel="stylesheet"/>
+<script src="/static/javascript/calendar.js" type="text/javascript"></script>
+<script src="/static/javascript/calendar-control.js" type="text/javascript"></script>
+<body>
+    <div class="calMainGrid">
+        <div class="calBox calSidebar">
+            <div class="daypicker">
+                <div id="datepicker"></div>
+            </div>
+            <div class="calInputField">
+                <!-- INPUT STUFF HERE -->
+            </div>
+        </div>
+        <div class="calBox calRibbon">
+            <!-- NAV BAR-->
+            <!-- TODAY -->
+            <button id="calTodayButton" class="btn btn-info">Today</button>
+            <!-- DATE -->
+            <div id="calClock"></div>
+                <script>
+                    const clock = document.getElementById('calClock');
+
+                    function updateTime () {
+                        const now = moment();
+                        const humanReadable = now.format('llll');
+                        clock.textContent = humanReadable;
+                    }
+
+                    setInterval(updateTime, 1000);
+                    updateTime();
+                </script>
+            <!-- DAY TOGGLE -->
+            <div id="calFwdBwd" class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label id="calBwd" class="btn btn-secondary">
+                    <input type="checkbox" checked="" autocomplete="off"> <
+                </label>
+                <label id="calFwd" class="btn btn-secondary">
+                    <input type="checkbox" autocomplete="off"> >
+                </label>
+            </div>
+            <!-- D/W -->
+            <div id="calDW" class="btn-group" data-toggle="buttons">
+                <label id="dayLabel" class="btn btn-secondary" data-time="day">
+                    <input type="radio" id="calDWday"> Day
+                </label>
+                <label id="weekLabel" class="btn btn-secondary" data-time="week">
+                    <input type="radio" id="calDWweek"> Week
+                </label>
+            </div>
+            <!-- FILTERS -->
+            <button id="displayButton" class="btn btn-lg btn-secondary" value="display">Display</button>
+            <!-- CENTRE -->
+            <link href="/static/css/sol.css" rel="stylesheet"/>
+            <script src="/static/javascript/sol.js" type="text/javascript"></script>
+            <div id="calCentreSelect">
+                <!--Searchable Object List (SOL)-->
+                <select id="centreSelect" name="Centres" multiple="multiple"></select>
+            </div>
+            <!--TEACHER-->
+            <div id="calTeacherSelectDay">
+                <!--Searchable Object List (SOL)-->
+                <select id="teacherSelectDay" name="TeachersDay" multiple="multiple"></select>
+            </div>
+            <div id="calTeacherSelectWeek">
+                <!--Searchable Object List (SOL)-->
+                <select id="teacherSelectWeek" name="TeachersWeek" ></select>
+            </div>
+        </div>
+        <div class="calInfoContainer">
+            <!--CALENDAR COMMENTARY HERE-->
+            <div class="calInfo">CALENDAR INFO</div>
+        </div>
+        <div class="calBox calSched">
+            <!--SCHEDULE STUFF HERE-->
+        </div>
+    </div>
+</body>
+{% endblock %}

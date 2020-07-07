@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <main class="container p-5">
+        <form id="myForm" method="POST" action="/register">
+            <div class="form-group">
+                <input id="field_username" class="form-control" title="Username must not be blank and contain only letters, numbers and underscores." type="text" placeholder="Username" required pattern="\w+" name="username"></p>
+            </div>
+            <div class="form-group">
+                <input id="field_pwd1" class="form-control" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." type="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"></p>
+            </div>
+            <div class="form-group">
+                <input id="field_pwd2" class="form-control" title="Please enter the same Password as above." type="password" placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="confirmation"></p>
+            </div>
+            <button id="last_field" class="btn btn-danger" type="submit">Register</button>
+        </form>
+        <div class="invalid_input"></div>
+    </main>
+{% endblock %}

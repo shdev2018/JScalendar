@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Calendar
+{% endblock %}
+
+{% block main %}
+
+<link href="/static/css/calendar.css" rel="stylesheet"/>
+<script src="/static/javascript/calendar.js" type="text/javascript"></script>
+<body>
+    <div class="calMainGrid">
+        <div class="calBox calSidebar">
+        </div>
+        <div class="calBox calRibbon">
+            <!-- NAV BAR-->
+            <!-- TODAY -->
+            <button id="calTodayButton" class="btn btn-info">Today</button>
+            <!-- DATE -->
+            <h5 class="navDate">{{ currentDate }}</h5>
+            <!-- DAY TOGGLE -->
+            <div id="calFwdBwd" class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary">
+                    <input type="checkbox" checked="" autocomplete="off"> <
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="checkbox" autocomplete="off"> >
+                </label>
+            </div>
+            <!-- D/W/M -->
+            <div id="calDWM" class="btn-group" data-toggle="buttons">
+                <label id="dayLabel" class="btn btn-secondary active">
+                    <input type="radio" id="calDWMday"> Day
+                </label>
+                <label id="weekLabel" class="btn btn-secondary">
+                    <input type="radio" id="calDWMweek"> Week
+                </label>
+                <label id="monthLabel" class="btn btn-secondary">
+                    <input type="radio" id="calDWMmonth"> Month
+                </label>
+            </div>
+            <!-- FILTERS -->
+            <a id="displayButton" class="btn btn-lg btn-secondary" role="button" data-toggle="popover" data-placement="bottom" title="Display & Filters">Display</a>
+            <!-- CENTER -->
+            <div id="calCentreSelect">
+                <select class="form-control" id="calCselect">
+                    <option value="" disabled selected>Centre</option>
+                    {% for dict in centres %}
+                        {% for key, value in dict.items() %}
+                            <option class="calCentreOption">{{ value }}</option>
+                        {% endfor %}
+                    {% endfor %}
+                </select>
+            </div>
+            <!--TEACHER-->
+            <link href="/static/css/sol.css" rel="stylesheet"/>
+            <script src="/static/javascript/sol.js" type="text/javascript"></script>
+            <div id="calTeacherSelect">
+                <!--Searchable Object List (SOL)-->
+                <select id="teacherSelect" name="Teachers" multiple="multiple">
+                    {% for dict in teachers %}
+                        {% for key, value in dict.items() %}
+                            <option value="{{ key }}" selected="true" class="calCentreOption">{{ value }}</option>
+                        {% endfor %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="calBox calSched">
+            <!--SCHEDULE STUFF HERE-->
+        </div>
+    </div>
+</body>
+{% endblock %}

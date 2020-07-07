@@ -1,0 +1,9 @@
+Upon load
+- Jump to last visited day/week - if today then 'today' then \/\/
+Upon day selection
+GET availabilities for selected day/all days in week (Via date POST ajax)
+ - Select (teacher_id, start_time, end_time) where start date <= today && end date >= today && (day) is true, order by start_time
+ - Return {}
+For each avail in day
+ - If teacher selected && object start/end_time viewable
+ - - Append CSS colored overlay

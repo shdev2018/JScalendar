@@ -1,0 +1,52 @@
+/*
+Room SOL
+Teacher SOL
+SOL initialisations
+*/
+/*
+Static data
+-- Dwm templates
+-- Time conversion spectrum
+*/
+/*
+Initial Data (only drawn at beginning of calendar session)
+--- HTTP GET request
+--- (updated throughout session)
+- Session prefs
+-- Time params (2 - 98)
+-- Last dwm viewed 
+-- Teachers selected (ID)
+-- Rooms selected
+-- Centre selected
+-- Instruments selected
+-- Lesson types selected
+--- (Never updated)
+- User info
+-- Permission Level
+-- ID
+-- Username
+- Templates
+-- 
+*/
+/*
+Date - Livestamp.js
+*/
+/*
+Button dependant data (Auto draw after 'Initial Data' as well as later reactive draws)
+---JS internal queries
+- Current appt/unavail/notes for timeframe
+- Current session prefs
+--- Reactive HTTP GET requests
+- Current teacher query
+- Current center query
+- Current room query
+- Current Instrument query
+- Current Lesson type query
+*/
+/*
+Update Functions (data alterations via calendar)
+-- HTTP UPDATE requests
+- Session prefs / JS then DB
+- Apts-Unavail-Notes / JS then DB
+- User activity / DB
+*/

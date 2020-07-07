@@ -1,0 +1,324 @@
+/* Calendar parents */
+
+.calMainGrid {
+  display: grid;
+  width: 100%;
+  height: 500px;
+  grid-template-columns: 22% 78%;
+  /*grid-column-gap: 10px*/
+  grid-template-rows: 50px 1fr;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #C2BFFE;
+  background-color: #F8F8F8;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.calBox {
+  border: 1px solid #AAAAAA;
+  padding: 1px 1px;
+}
+
+.calSidebar {
+  grid-row: 1 / span 2
+}
+
+.calRibbon {
+  border-bottom: 1px solid #AAAAAA;
+  padding: 1px 1px;
+}
+
+.calSched {
+}
+
+#calTodayButton {
+  float: left;
+  margin-left:30px;
+  margin-top:11px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  text-indent: -8px;
+  line-height: 12px;
+  width: 45px;
+  height: 26px;
+}
+.navDate {
+  float: left;
+  margin-top:14px;
+  margin-left:20px;
+}
+#calFwdBwd {
+  float: left;
+  margin-top:6px;
+  margin-left:20px;
+  font-size: 1.1vw;
+  font-weight: bold;
+  line-height: 1px;
+  color: #CBCBCB;
+}
+
+#calFwdBwd .btn-secondary {
+  margin-top:5px;
+  line-height: 12px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+
+#calDWM {
+  float: left;
+  margin-top:6px;
+  margin-left:20px;
+  font-size: 1.1vw;
+  font-weight: bold;
+  line-height: 1px;
+  color: #CBCBCB;
+}
+
+#calDWM .btn-secondary {
+  margin-top:5px;
+  line-height: 12px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+
+#calCentreSelect {
+  float: left;
+  margin-top:6px;
+  margin-left:20px;
+  width: 110px;
+  height: 0px;
+  display: inline-block
+}
+
+#calFiltersButton {
+  float: left;
+  margin-left:20px;
+  margin-top:11px;
+  font-size: 12px;
+  text-align: center;
+  text-indent: -2px;
+  line-height: 12px;
+  width: 60px;
+  height: 26px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+
+#calTeacherSelect {
+  float: left;
+  margin-top:6px;
+  margin-left:20px;
+  width: 200px;
+  height: 0px;
+  display: inline-block
+}
+
+#calCselect {
+  height: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#calDWM input[type="radio"] {
+    display: none;
+}
+
+.day {
+  color: red;
+}
+
+
+
+
+
+
+/* Cross view compoents */
+.staffWk {
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #424242;
+  float: left;
+}
+.headButton {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  border-left: 1px solid #737373;
+  background-color: #424242;
+  float: left;
+  right: 80%;
+  cursor: pointer;
+}
+.headButton:hover {
+  background-color: #555555;
+}
+.calHeadCaret {
+  width: 0;
+  height: 0;
+  border-left: 0.35vw solid transparent;
+  border-right: 0.35vw solid transparent;
+  border-top: 0.35vw solid white;
+  display: inline-block;
+}
+.headBack {
+  grid-area: 1 / 1 / span 1 / span 8;
+  background-color: #737373;
+}
+
+
+/* Week View */
+.weekGrid {
+  display: grid;
+  width: 100%;
+  height: 445px;
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-column-gap: .3%;
+  grid-template-rows: 20px repeat(96, 1fr);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFF;
+  text-align: center;
+}
+.addStaff {
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: #737373;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  width: 106%;
+}
+.weekdayCol {
+  border: 1px solid #C2BFFE;
+}
+.weekdayHead {
+  display: inline;
+  height: 100%;
+}
+.mondayHead {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.tuesdayHead {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.wednesdayHead {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.thursdayHead {
+  grid-area: 1 / 5 / 2 / 6;
+}
+.fridayHead {
+  grid-area: 1 / 6 / 2 / 7;
+}
+.saturdayHead {
+  grid-area: 1 / 7 / 2 / 8;
+}
+.sundayHead {
+  grid-area: 1 / 8 / 2 / 9;
+}
+.timesBar {
+  grid-area: 2 / 1 / -1 / 2;
+  width: 106%;
+}
+.mondayCol {
+  grid-area: 2 / 2 / -1 / 3;
+}
+.tuesdayCol {
+  grid-area: 2 / 3 / -1 / 4;
+}
+.wednesdayCol {
+  grid-area: 2 / 4 / -1 / 5;
+}
+.thursdayCol {
+  grid-area: 2 / 5 / -1 / 6;
+}
+.fridayCol {
+  grid-area: 2 / 6 / -1 / 7;
+}
+.saturdayCol {
+  grid-area: 2 / 7 / -1 / 8;
+}
+.sundayCol {
+  grid-area: 2 / 8 / -1 / 9;
+}
+
+.timeSlot {
+  background-color: white;
+  cursor: pointer;
+}
+.timeSlot:hover {
+  background-color: #BDDCF4;
+}
+.timeSlot1 {
+}
+.timeSlot2 {
+  border-bottom: 0.5px solid #CCCCCC;
+  border-bottom: 0.5px solid rgba(204, 204, 204, 0.9);
+}
+.timeSlot3 {
+}
+.timeSlot0 {
+  border-bottom: 0.5px solid #CCCCCC;
+  border-bottom: 0.5px solid rgba(153, 153, 153, 0.9);
+}
+
+
+/* Display popover */
+#displayButton {
+  float: left;
+  margin-left:20px;
+  margin-top:11px;
+  font-size: 12px;
+  text-align: center;
+  text-indent: -7px;
+  line-height: 8px;
+  width: 60px;
+  height: 26px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+.bs-popover-bottom {
+  border-color:#aaa;
+}
+.arrow {
+  border-color:#aaa;
+}
+
+.popover-header {
+  text-align: center;
+}
+.popover-header {
+  text-align: center;
+}
+
+#popover_struct {
+  display: grid;
+  margin: 0 auto;
+  width: 200px;
+  height: 60px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.t_StartTitle {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.t_Start {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.t_EndTitle {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.t_End {
+  grid-area: 2 / 2 / 3 / 3;
+}

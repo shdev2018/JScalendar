@@ -1,0 +1,657 @@
+/* Calendar parents */
+
+.calMainGrid {
+  display: grid;
+  width: 100%;
+  height: 500px;
+  grid-template-columns: 22% 78%;
+  /*grid-column-gap: 10px*/
+  grid-template-rows: 50px  25px 1fr;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #C2BFFE;
+  background-color: #F8F8F8;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.calBox {
+  border: 1px solid #AAAAAA;
+  padding: 1px 1px;
+}
+
+.calSidebar {
+  grid-row: 1 / span 3
+}
+
+.calInfoContainer {
+  grid-area: 2 / 2 / span 1 / span 1
+}
+
+.calInfo {
+  height:100%;
+  border: 1px solid #AAAAAA;
+  padding: 1px 1px;
+  background-color: #FFFFFF;
+}
+
+.calSched {
+  grid-area: 3 / 2 / span 1 / span 1
+}
+
+.calRibbon {
+  border-bottom: 1px solid #AAAAAA;
+  padding: 1px 1px;
+}
+
+#calTodayButton {
+  float: left;
+  margin-left:30px;
+  margin-top:11px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  text-indent: -8px;
+  line-height: 12px;
+  width: 45px;
+  height: 26px;
+}
+
+#calClock {
+  height: 40px;
+  float: left;
+  text-align: center;
+  margin-top: 22px;
+  margin-left:15px;
+  font-size: 1.1vw;
+  font-weight: bold;
+  line-height: 1px;
+}
+
+#calFwdBwd {
+  float: left;
+  margin-top:6px;
+  margin-left:15px;
+  font-size: 1.1vw;
+  font-weight: bold;
+  line-height: 1px;
+  color: #CBCBCB;
+}
+
+#calFwdBwd .btn-secondary {
+  margin-top:5px;
+  line-height: 12px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+
+#calDW {
+  float: left;
+  margin-top:6px;
+  margin-left:15px;
+  font-size: 1.1vw;
+  font-weight: bold;
+  line-height: 1px;
+  color: #CBCBCB;
+}
+
+#calDW .btn-secondary {
+  margin-top:5px;
+  line-height: 12px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+
+#calCentreSelect {
+  float: left;
+  margin-top:6px;
+  margin-left:15px;
+  width: 200px;
+  height: 0px;
+  display: inline-block
+}
+
+#calFiltersButton {
+  float: left;
+  margin-left:20px;
+  margin-top:11px;
+  font-size: 12px;
+  text-align: center;
+  text-indent: -2px;
+  line-height: 12px;
+  width: 60px;
+  height: 26px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+
+#calTeacherSelectDay {
+  float: left;
+  margin-top:6px;
+  margin-left:20px;
+  width: 200px;
+  height: 0px;
+  display: none;
+}
+
+#calTeacherSelectWeek {
+  float: left;
+  margin-top:6px;
+  margin-left:20px;
+  width: 200px;
+  height: 0px;
+  display: none;
+}
+
+#calDW input[type="radio"] {
+    display: none;
+}
+
+.day {
+  color: red;
+}
+
+
+/* Cross view compoents */
+#schedContainer {
+  position: relative;
+}
+
+.colHeader {
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #424242;
+  float: left;
+}
+.headButton {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  border-left: 1px solid #737373;
+  background-color: #424242;
+  float: left;
+  right: 80%;
+  cursor: pointer;
+}
+.headButton:hover {
+  background-color: #555555;
+}
+.calHeadCaret {
+  width: 0;
+  height: 0;
+  border-left: 0.35vw solid transparent;
+  border-right: 0.35vw solid transparent;
+  border-top: 0.35vw solid white;
+  display: inline-block;
+}
+.headBack {
+  grid-area: 1 / 1 / span 1 / span 8;
+  background-color: #737373;
+}
+
+
+/* Week View */
+.weekGrid {
+  display: grid;
+  width: 100%;
+  height: 420px;
+  grid-template-columns: 0.75fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-column-gap: .3%;
+  grid-template-rows: 20px repeat(96, 1fr);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFF;
+  text-align: center;
+}
+
+.dayGrid {
+  display: grid;
+  width: 100%;
+  height: 420px;
+  grid-template-columns: 53px 2fr;
+  grid-column-gap: 1px;
+  grid-template-rows: 20px repeat(96, 1fr);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFF;
+  text-align: center;
+}
+
+.addStaff {
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: #737373;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  width: 106%;
+  cursor: pointer;
+}
+
+.addStaff:hover {
+  background-color: #545454;
+}
+.calCol {
+  border: 1px solid #C2BFFE;
+  overflow: hidden;
+}
+.calHead {
+  display: inline;
+  height: 100%;
+}
+.mondayHead {
+  position: relative;
+  grid-area: 1 / 2 / 2 / 3;
+}
+.notesHead {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.tuesdayHead {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.wednesdayHead {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.thursdayHead {
+  grid-area: 1 / 5 / 2 / 6;
+}
+.fridayHead {
+  grid-area: 1 / 6 / 2 / 7;
+}
+.saturdayHead {
+  grid-area: 1 / 7 / 2 / 8;
+}
+.sundayHead {
+  grid-area: 1 / 8 / 2 / 9;
+}
+.timesBar {
+  grid-area: 2 / 1 / -1 / 2;
+  width: 106%;
+}
+.mondayCol {
+  grid-area: 2 / 2 / -1 / 3;
+}
+.notesCol {
+  grid-area: 2 / 2 / -1 / 3;
+}
+.tuesdayCol {
+  grid-area: 2 / 3 / -1 / 4;
+}
+.wednesdayCol {
+  grid-area: 2 / 4 / -1 / 5;
+}
+.thursdayCol {
+  grid-area: 2 / 5 / -1 / 6;
+}
+.fridayCol {
+  grid-area: 2 / 6 / -1 / 7;
+}
+.saturdayCol {
+  grid-area: 2 / 7 / -1 / 8;
+}
+.sundayCol {
+  grid-area: 2 / 8 / -1 / 9;
+}
+
+.timeSlot {
+  background-color: white;
+  cursor: pointer;
+}
+.timeSlot:hover {
+  background-color: #BDDCF4;
+}
+.timeSlot1 {
+}
+.timeSlot2 {
+  border-bottom: 0.5px solid #CCCCCC;
+  border-bottom: 0.5px solid rgba(204, 204, 204, 0.9);
+}
+.timeSlot3 {
+}
+.timeSlot0 {
+  border-bottom: 0.5px solid #CCCCCC;
+  border-bottom: 0.5px solid rgba(153, 153, 153, 0.9);
+}
+.timeTag {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 10px;
+  float: right;
+  margin-left: auto;
+  margin-right: 5%;
+}
+
+
+/* Display popover */
+#displayButton {
+  float: left;
+  margin-left:20px;
+  margin-top:11px;
+  font-size: 12px;
+  text-align: center;
+  text-indent: -7px;
+  line-height: 8px;
+  width: 60px;
+  height: 26px;
+  color:#222;
+  background-color:#aaa;
+  border-color:#aaa
+}
+.bs-popover-bottom {
+  border-color:#aaa;
+}
+.arrow {
+  border-color:#aaa;
+}
+
+.popover-header {
+  text-align: center;
+}
+.popover-header {
+  text-align: center;
+}
+
+
+
+.t_StartTitle {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.t_Start {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.t_EndTitle {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.t_End {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.sol-no-results {
+  font-size: 0px;
+  padding: 0px;
+}
+
+/*
+.butt {
+  background-color:#aaa;
+  z-index: 1;
+  grid-row: 4 / 8;
+  grid-column-start: 2;
+  width: 50%;
+  float: right;
+}
+.bum {
+  background-color:#aaa;
+  z-index: 1;
+  grid-row: 5 / 9;
+  grid-column-start: 2;
+  width: 50%;
+  float: left;
+  margin-left: 50%;
+}
+*/
+
+/* Week View */
+.availability {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(66, 244, 113, 0.5);
+  text-align: center;
+}
+
+.availability:hover {
+  background-color: #0b0199;
+}
+
+/* for display page */
+#popover_struct {
+  display: grid;
+  margin: 0 auto;
+  width: 200px;
+  height: 60px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.daypicker {
+  height: 160px;
+}
+
+.calInputField {
+  height: 335px;
+  border-top: 2px solid #C2BFFE;
+}
+
+
+
+/* Availability Input */
+#availGrid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 0.4fr 0.25fr 1fr 1fr 3px;
+  grid-template-rows:  .5fr 1px repeat(8, 1fr);
+  grid-column-gap: 3px;
+}
+
+.availTitle {
+  grid-area: 1 / 1 / 2 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.availDayLabel {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  float: right;
+  margin-left: auto;
+  margin-right: 5%;
+}
+.availMon {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.availTue {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.availWed {
+  grid-area: 5 / 1 / 6 / 2;
+}
+.availThu {
+  grid-area: 6 / 1 / 7 / 2;
+}
+.availFri {
+  grid-area: 7 / 1 / 8 / 2;
+}
+.availSat {
+  grid-area: 8 / 1 / 9 / 2;
+}
+.availSun {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+.availDayCheck {
+  display: flex;
+  align-items: center;
+  margin-left: 3px;
+}
+.availCheckMon {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.availCheckTue {
+  grid-area: 4 / 2 / 5 / 3;
+}
+.availCheckWed {
+  grid-area: 5 / 2 / 6 / 3;
+}
+.availCheckThu {
+  grid-area: 6 / 2 / 7 / 3;
+}
+.availCheckFri {
+  grid-area: 7 / 2 / 8 / 3;
+}
+.availCheckSat {
+  grid-area: 8 / 2 / 9 / 3;
+}
+.availCheckSun {
+  grid-area: 9 / 2 / 10 / 3;
+}
+
+.availDropTitle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: bold;
+}
+.availTeacher {
+  grid-area: 3 / 3 / 4 / 4;
+}
+.availCentre {
+  grid-area: 3 / 4 / 4 / 5;
+}
+.availDropContT {
+  grid-area: 4 / 3 / 5 / 4;
+}
+.availDropContC {
+  grid-area: 4 / 4 / 5 / 5;
+}
+
+.availStart {
+  grid-area: 5 / 3 / 6 / 4;
+}
+.availEnd {
+  grid-area: 5 / 4 / 6 / 5;
+}
+.availTime {
+  grid-area: 6 / 3 / 7 / 5;
+}
+.availDate {
+  grid-area: 8 / 3 / 9 / 5;
+}
+.availDropTimeStart {
+  grid-area: 7 / 3 / 8 / 4;
+}
+.availDropTimeEnd {
+  grid-area: 7 / 4 / 8 / 5;
+}
+.availDateStart {
+  grid-area: 9 / 3 / 10 / 4;
+}
+.availDateEnd {
+  grid-area: 9 / 4 / 10 / 5;
+}
+.availSubmit {
+  grid-area: 10 / 1 / 11 / 5;
+}
+#availClose {
+  display: inline-block;
+  float: right;
+  color: black;
+}
+#availSubmit {
+  display: inline-block;
+  float: center;
+  margin-left: 30%;
+}
+/* end avail */
+
+
+.resizable {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 1000;
+  width: 100%;
+  background-image: linear-gradient(45deg, rgba(181,181,181,0.5) 25%, rgba(163,163,163,0.5) 25%, rgba(163,163,163,0.5) 50%, rgba(181,181,181,0.5) 50%, rgba(181,181,181,0.5) 75%, rgba(163,163,163,0.5) 75%, rgba(163,163,163,0.5) 100%);
+  background-size: 16.97px 16.97px;
+  border: 0px solid #C2BFFE;
+}
+
+.resizable:hover {
+  cursor: pointer;
+}
+
+.availTop {
+  height: 5px;
+  border-bottom: 2px solid #484848;
+  width: 20%;
+}
+.availText {
+  position: absolute;
+  top: 5px;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 3px;
+  font-size: 12px;
+  height: 15px;
+  width: 100%;
+}
+.availText2 {
+  position: absolute;
+  top: 20px;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 3px;
+  font-size: 12px;
+  height: 15px;
+  width: 100%;
+}
+
+.availBottom {
+  height: 5px;
+  border-top: 2px solid #484848;
+  width: 20%;
+}
+
+#addSubmenu {
+  position: absolute;
+  border-radius: 7px;
+  overflow: hidden;
+  width: 150px;
+  height: 40px;
+  top: -10px;
+  left: 0px;
+  background-color: #FFFFFF;
+  text-align: left;
+  border: 1px solid #AAAAAA;
+  font-weight: bold;
+}
+
+#addSubmenu div {
+  width: 100%;
+}
+
+#addSubmenu a {
+  margin-left: 5px;
+}
+
+#addSubmenu div:hover {
+  color: #FFFFFF;
+  background-color: #0088CC;
+  cursor: pointer;
+}
+div.ui-datepicker-inline{
+  font-size: 8.7px;
+  height: 161px;
+}
+.daypicker .ui-datepicker-group-last .ui-datepicker-header {
+  height: 21px;
+}
+#ui-datepicker-div {
+  left: 75px !important;
+}
